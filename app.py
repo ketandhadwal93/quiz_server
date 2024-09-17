@@ -1,5 +1,8 @@
 from flask import Flask, request
 
+right_answer_counter = 0
+wrong_answer_counter = 0
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -16,3 +19,13 @@ def do_you_want_to_play():
     return (f"<p>\"Okay, Let's play!! {request.args.get('name')}\"</p>", 200)
 
 
+# request will be sent as http://127.0.0.1:5000/question2?answer=yes
+@app.route("/question2")  # /question2 is called an api end point
+def cpu():
+    answer = request.args.get('answer')
+    if answer == "central processing unit":
+        right_answer_counter = right_answer_counter + 1
+        return (f"<p>Correct!</p>", 200)
+    else:
+        wrong_answer_counter = wrong_answer_counter + 1
+        return (f"<p>Incorrect!</p>", 200)
