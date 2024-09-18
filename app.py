@@ -52,3 +52,14 @@ def capitalcity():
     else:
         wrong_answer_counter = wrong_answer_counter + 1
         return (f"<p>Incorrect!</p>", 200)
+    
+# request will be sent as http://127.0.0.1:5000/question5?answer=yes
+@app.route("/question5")  # /question5 is called an api end point
+def punjabcapital():
+    answer = request.args.get('answer')
+    if answer == "chandigarh":
+        right_answer_counter = right_answer_counter + 1
+        return (f"<p>Correct!</p>", 200)
+    else:
+        wrong_answer_counter = wrong_answer_counter + 1
+        return (f"<p>Incorrect!</p>", 200)
