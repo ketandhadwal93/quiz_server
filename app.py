@@ -33,6 +33,17 @@ def cpu():
 
 # request will be sent as http://127.0.0.1:5000/question3?answer=yes
 @app.route("/question3")  # /question3 is called an api end point
+def gpu():
+    answer = request.args.get('answer')
+    if answer == "graphical processing unit":
+        right_answer_counter = right_answer_counter + 1
+        return (f"<p>Correct!</p>", 200)
+    else:
+        wrong_answer_counter = wrong_answer_counter + 1
+        return (f"<p>Incorrect!</p>", 200)
+
+# request will be sent as http://127.0.0.1:5000/question4?answer=yes
+@app.route("/question4")  # /question4 is called an api end point
 def capitalcity():
     answer = request.args.get('answer')
     if answer == "delhi":
@@ -41,5 +52,3 @@ def capitalcity():
     else:
         wrong_answer_counter = wrong_answer_counter + 1
         return (f"<p>Incorrect!</p>", 200)
-    
-
