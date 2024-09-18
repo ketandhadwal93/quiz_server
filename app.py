@@ -63,3 +63,15 @@ def punjabcapital():
     else:
         wrong_answer_counter = wrong_answer_counter + 1
         return (f"<p>Incorrect!</p>", 200)
+    
+# request will be sent as http://127.0.0.1:5000/question6?answer=yes
+@app.route("/question6")  # /question6 is called an api end point
+def goldentemple():
+    answer = request.args.get('answer')
+    if answer == "amritsar":
+        right_answer_counter = right_answer_counter + 1
+        return (f"<p>Correct!</p>", 200)
+    else:
+        wrong_answer_counter = wrong_answer_counter + 1
+        return (f"<p>Incorrect!</p>", 200)
+
